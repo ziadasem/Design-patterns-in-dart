@@ -1,10 +1,134 @@
-Selected design patterns in Dart and Flutter were selected from refactoring. Guru and tutorials point.
+# Design Patterns in Dart
+a markdown file for selected design patterns in Dart and Flutter were selected from refactoring. Guru and tutorials point.
 
 ## 1. Introduction
+In software engineering, a design pattern is a general repeatable solution to a commonly occurring problem in software design. A design pattern isn't a finished design that can be transformed directly into code. It is a description or template for how to solve a problem that can be used in many different situations.
 
+### Patterns vs algorithms:
+
+Patterns are often confused with algorithms because both concepts describe typical solutions to some known problems. 
+
+While an algorithm always defines a **clear set of actions that can achieve some goal**, a pattern is **a more high-level description of a solution**. The code of the same pattern applied to two different programs may be different.
+
+for example, take the `binary search algorithm` and `Factory pattern` as an example. This algorithm implies certain clear steps to implement. for example, the List should sorted, three checks should be made, and the update of index.
+
+while for Factory pattern it is stated as to create an object without exposing the creation logic to the client and refer to newly created object using a common interface. without providing concise steps or methods, as it is free to the developer.
+
+so for learning a design pattern, a different mindset is required than the mindset of using an algorithm.
+
+### Elements of a Design Pattern 
+![mindmap](https://i.ibb.co/wh8kF6G/ele.jpg)
+
+### Classification of design patterns
+```
+													Classification of design patterns
+																|
+																|
+		________________________________________________________________________________________________
+		↓													    ↓									   ↓
+		↓													    ↓									   ↓
+	Creational patterns								     Structural patterns					Behavioral patterns
+provide object creation mechanisms that 		Patterns that describes how to assemble 	take care of effective communication and the 
+increase flexibility and reuse of existing		objects and classes together as a larger   assignment of responsibilities between objects
+code.													flexible structure
+(Factory Method, Abstract Factory , Singleton)  (Adapter Method, Bridge method , Facade)	(Command Method, Strategy, Observer)
+
+```
 ## 2. Creational Design Patterns
 
-  
+### 2.1 Factory Method Design pattern
+* separates the object creation logic from the client code
+* a factory can  return different objects belonging to the same super-class, with the same method
+
+when you have buttons class; one for Windows, one for MacOS, one for Web, one for Android, and one for IOS. you can create as many classes as you want to instantiate, **OR, you can use a factory design pattern**.
+
+**Problem**:
+suppose we write a cross-platform program that renders a button according to the running OS, and we have this piece of code:
+```dart
+return Scaffold (
+	body:
+		isWeb ? WebButton()
+		: isAndroid ? AndroidButton()
+		: isMacOS ? MacButton() 
+		: isWindows ? WindowsButton()
+		: IosButton()
+)
+```
+as you can see many ternary if-conditions are written in to decide which object to pass.
+
+**The Solution**:
+all of these objects are `Button`, so they can implement Button interface, and every subclass will override its methods 
+```dart
+class Button { //no interface in dart
+	void onClick(){}
+	void render(){}
+}
+```
+and for the derived classes:
+```dart
+class WButton implements Button{
+	@Override
+	void draw(){ print("draw windows button");}
+
+	@Override
+	void onClick(){ print("draw windows button");}
+}
+
+class AButton implements Button{
+	@Override
+	void draw(){ print("draw Android button");}
+
+	@Override
+	void onClick(){ print("draw Android button");}
+}
+
+class WebButton implements Button{
+	@Override
+	void draw(){ print("draw web button");}
+
+	@Override
+	void onClick(){ print("draw web button");}
+}
+```
+
+**Create button factory class**
+After creating objects that implement the same interface, now we will create a Factory class, which is a class with the creation logic that returns the appropriate Button once.
+```dart
+class ButtonFactory {
+	Button getButton(){ 
+		if (isWeb){
+			return WebButton();
+		}else if (isAndroid){
+			return AndroidButton();
+		}....
+}
+```
+
+now update the first code snippet to fix the issue:
+```dart
+return Scaffold (
+	body:
+		ButtonFactory.getButton(),
+)
+```
+now we can add more buttons without affecting the client code.
+
+### 2.2 Singleton Design pattern
+creats one instance of object in the runtime, it is useful for classes that connects to database or classes that loads configuration
+```dart
+class Calender {
+	 Calender._() {} //disable calling to the constructor by makeing the constructor private
+	 static Calender _instance;
+
+	 static getInstance() {
+		if (_instance == null) {
+			_instance =  Calender();
+		}
+		return _instance ;
+	 }
+}
+```
+
 
 ## 3. Structural Design Patterns
 
