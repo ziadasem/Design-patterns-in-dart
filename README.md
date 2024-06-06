@@ -21,17 +21,17 @@ so for learning a design pattern, a different mindset is required than the minds
 
 ### Classification of design patterns
 ```
-													Classification of design patterns
-																|
-																|
-		____________________________________________________________________________________________________________________________________________________________________________________
-		↓													    ↓									   ↓
-		↓													    ↓									   ↓
-	Creational patterns								     Structural patterns					Behavioral patterns
-provide object creation mechanisms that 		Patterns that describes how to assemble 	take care of effective communication and the 
-increase flexibility and reuse of existing		objects and classes together as a larger   assignment of responsibilities between objects
-code.													flexible structure
-(Factory Method, Abstract Factory , Singleton)  (Adapter Method, Bridge method , Facade)	(Command Method, Strategy, Observer)
+											Classification of design patterns
+												    |
+												    |
+		___________________________________________________________________________________________________________________________________________
+		↓										    ↓							  ↓
+		↓									            ↓							  ↓
+	Creational patterns								     Structural patterns				Behavioral patterns
+provide object creation mechanisms that 					Patterns that describes how to assemble 		take care of effective communication and the 
+increase flexibility and reuse of existing					objects and classes together as a larger   		assignment of responsibilities between objects
+code.											flexible structure
+(Factory Method, Abstract Factory , Singleton)  				(Adapter Method, Bridge method , Facade)		(Command Method, Strategy, Observer)
 
 ```
 ## 2. Creational Design Patterns
