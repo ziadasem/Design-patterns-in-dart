@@ -24,7 +24,7 @@ so for learning a design pattern, a different mindset is required than the minds
 													Classification of design patterns
 																|
 																|
-		________________________________________________________________________________________________
+		____________________________________________________________________________________________________________________________________________________________________________________
 		↓													    ↓									   ↓
 		↓													    ↓									   ↓
 	Creational patterns								     Structural patterns					Behavioral patterns
