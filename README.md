@@ -1,5 +1,5 @@
-# Design Patterns in Dart
-a markdown file for selected design patterns in Dart and Flutter were selected from refactoring. Guru and tutorials point.
+# Exploring Design Patterns in Dart 
+Design patterns in Dart are explored in this article, providing insights into their importance, implementation, and utility. A selection of patterns from the three main categories (creational, structural, and behavioral), is focused on, with examples in Dart demonstrating their usage. References from authoritative sources such as Refactoring Guru and tutorials from TutorialsPoint are used.
 
 ## 1. Introduction
 In software engineering, a design pattern is a general repeatable solution to a commonly occurring problem in software design. A design pattern isn't a finished design that can be transformed directly into code. It is a description or template for how to solve a problem that can be used in many different situations.
@@ -14,7 +14,7 @@ for example, take the `binary search algorithm` and `Factory pattern` as an exam
 
 while for Factory pattern it is stated as to create an object without exposing the creation logic to the client and refer to newly created object using a common interface. without providing concise steps or methods, as it is free to the developer.
 
-so for learning a design pattern, a different mindset is required than the mindset of using an algorithm.
+So, to learn a design pattern, a different mindset is required than the mindset of using an algorithm.
 
 ### Elements of a Design Pattern 
 ![mindmap](https://i.ibb.co/wh8kF6G/ele.jpg)
